@@ -179,7 +179,7 @@ int main(int argc, char* argv[]) {
   U128 a,b;
   uint32_t n;
   uint16_t numthreads;
-  uint8_t maxprimorial = 20;
+  uint8_t maxprimorial = 21;
   if (argc < 5) {
     validinput = false;
   } else {
@@ -203,7 +203,7 @@ int main(int argc, char* argv[]) {
   primefactorcountssize = MIN(primefactorcountssize, 1+(b-a));
   uint32_t numprimes;
   uint32_t icbrtb = icbrtu128(b);
-  uint32_t smallprimes[] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71};
+  uint32_t smallprimes[] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73};
   assert(maxprimorial <= (sizeof(smallprimes)/sizeof(uint32_t)));
   U128 nthprimorial = 1;
   for (uint32_t i = 0; i<n; i++) nthprimorial *= smallprimes[i];
