@@ -195,11 +195,11 @@ int main(int argc, char* argv[]) {
     if (a >> 96) validinput = false;
     if (b >> 96) validinput = false;
   }
+  uint32_t primefactorcountssize = 10000000;
   if (!validinput) {
-    printf("This program searches for the smallest integer x with a <= x <= b with x having at least n distinct prime factors.\nAuthor: Simon Goater Dec 2025\nUsage: %s numthreads a b n \n1 <= a <= b < 2^96\n1 <= n <= %u\n", argv[0], maxprimorial);
+    printf("This program searches for the smallest integer x with a <= x <= b with x having at least n distinct prime factors.\nAuthor: Simon Goater Dec 2025\nRAM requirement ~MAX(3GB, 1GB + numthreads*%uMB)\nUsage: %s numthreads a b n \n1 <= a <= b < 2^96\n1 <= n <= %u\n", (17*primefactorcountssize)/1000000u, argv[0], maxprimorial);
     exit(0);
   }
-  uint32_t primefactorcountssize = 1000000;
   primefactorcountssize = MIN(primefactorcountssize, 1+(b-a));
   uint32_t numprimes;
   uint32_t icbrtb = icbrtu128(b);
